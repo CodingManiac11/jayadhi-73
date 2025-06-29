@@ -255,6 +255,20 @@ docker-compose up -d
 - `PUT /api/insurance/assessments/:id` - Update assessment
 - `DELETE /api/insurance/assessments/:id` - Delete assessment
 
+### Output
+-![image](https://github.com/user-attachments/assets/28b7d5b2-950b-4e06-a45f-8783ffe1621a)
+-![image](https://github.com/user-attachments/assets/4c65ae6a-559c-48d9-b839-c5169bad94e4)
+-![image](https://github.com/user-attachments/assets/e812e08f-212f-4c36-9548-177d59887a48)
+-![image](https://github.com/user-attachments/assets/6a0cb3a1-1a66-452d-9083-2de1671197f3)
+-![image](https://github.com/user-attachments/assets/fc8f841a-f196-406c-bb9e-bc40e337311e)
+-![image](https://github.com/user-attachments/assets/71324a99-40dc-4ae0-ac21-7b7962e61f35)
+-![image](https://github.com/user-attachments/assets/fd25e48d-98c9-4880-b95e-c9e7cddafec4)
+
+
+
+
+
+
 ## 🤝 Contributing
 
 1. Fork the repository
