@@ -222,45 +222,46 @@ npm start
 docker-compose up -d
 ```
 
-## 📊 API Documentation
+## 📊 API Endpoints
 
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-- `GET /api/auth/profile` - Get user profile
+### Auth
+- `POST /api/auth/register` - Register
+- `POST /api/auth/login` - Login
+- `GET /api/users/me` - Get current user profile
+- `PUT /api/users/profile` - Update profile
+- `PUT /api/users/password` - Change password
 
 ### Assets
-- `GET /api/assets` - Get all assets
-- `POST /api/assets` - Create new asset
+- `GET /api/assets` - List assets
+- `POST /api/assets` - Add asset
 - `PUT /api/assets/:id` - Update asset
 - `DELETE /api/assets/:id` - Delete asset
 
 ### Threats
-- `GET /api/threats` - Get threat alerts
-- `POST /api/threats` - Report new threat
-- `PUT /api/threats/:id` - Update threat status
-- `GET /api/threats/analytics` - Threat analytics
+- `GET /api/threats` - List threats
+- `POST /api/threats` - Add threat
+- `PUT /api/threats/:id` - Update threat
+- `DELETE /api/threats/:id` - Delete threat
 
 ### Compliance
-- `GET /api/compliance/checklist` - Get compliance checklist
-- `POST /api/compliance/audit` - Submit audit results
-- `GET /api/compliance/reports` - Generate compliance reports
+- `GET /api/compliance` - List compliance tasks
+- `POST /api/compliance` - Add compliance task
+- `PUT /api/compliance/:id` - Update compliance task
+- `DELETE /api/compliance/:id` - Delete compliance task
 
 ### Insurance
-- `GET /api/insurance/risk-profile` - Get risk profile
-- `POST /api/insurance/policy-match` - Get policy recommendations
-- `POST /api/insurance/claims` - Submit insurance claim
+- `GET /api/insurance` - Get insurance readiness and requirements
+- `POST /api/insurance/assessments` - Add assessment
+- `PUT /api/insurance/assessments/:id` - Update assessment
+- `DELETE /api/insurance/assessments/:id` - Delete assessment
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
-
-
 
 ## 🆘 Support
 
