@@ -1471,6 +1471,10 @@ const App: React.FC = () => {
             <Button color="inherit" component={Link} to="/compliance">Compliance</Button>
             <Button color="inherit" component={Link} to="/insurance">Insurance</Button>
             <Button color="inherit" component={Link} to="/profile">Profile</Button>
+            <Button color="inherit" onClick={() => {
+              localStorage.removeItem('token');
+              window.location.href = '/signin';
+            }}>Logout</Button>
           </Toolbar>
         </AppBar>
       )}
