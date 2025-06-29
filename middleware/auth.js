@@ -1,68 +1,28 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const { verifyIdToken } = require('../config/firebase');
 const logger = require('../utils/logger');
 
 /**
  * Verify JWT token and attach user to request
  */
 const authenticateToken = async (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ error: 'No token provided' });
+  }
   try {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
-
-    if (!token) {
-      return res.status(401).json({
-        success: false,
-        message: 'Access token required'
-      });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    // Optionally, fetch user from DB
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return res.status(401).json({ error: 'User not found' });
     }
-
-    // Try Firebase token first
-    try {
-      const decodedToken = await verifyIdToken(token);
-      const user = await User.findOne({ email: decodedToken.email });
-      
-      if (!user || !user.isActive) {
-        return res.status(401).json({
-          success: false,
-          message: 'Invalid or inactive user'
-        });
-      }
-
-      req.user = user;
-      req.token = token;
-      next();
-    } catch (firebaseError) {
-      // If Firebase token fails, try JWT token
-      try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await User.findById(decoded.userId);
-        
-        if (!user || !user.isActive) {
-          return res.status(401).json({
-            success: false,
-            message: 'Invalid or inactive user'
-          });
-        }
-
-        req.user = user;
-        req.token = token;
-        next();
-      } catch (jwtError) {
-        logger.error('Token verification failed:', { firebaseError, jwtError });
-        return res.status(403).json({
-          success: false,
-          message: 'Invalid token'
-        });
-      }
-    }
-  } catch (error) {
-    logger.error('Authentication error:', error);
-    return res.status(500).json({
-      success: false,
-      message: 'Authentication failed'
-    });
+    req.user = user;
+    next();
+  } catch (err) {
+    logger.error('JWT verification failed:', err);
+    return res.status(401).json({ error: 'Invalid token' });
   }
 };
 

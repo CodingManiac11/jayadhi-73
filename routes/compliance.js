@@ -79,4 +79,16 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
+// POST /api/compliance/training - Mark employee security training as complete
+router.post('/training', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.body.userId || req.user._id;
+    const training = new Training({ user: userId, type: 'security' });
+    await training.save();
+    res.status(201).json({ message: 'Security training marked as complete for user.', training });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to mark training as complete.' });
+  }
+});
+
 module.exports = router; 

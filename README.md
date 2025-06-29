@@ -44,7 +44,6 @@ A comprehensive, India-focused SaaS solution designed to empower startups and MS
 ### Backend
 - **Node.js** with Express.js
 - **MongoDB** with Mongoose ODM
-- **Firebase Auth** for authentication
 - **Socket.io** for real-time communications
 - **TensorFlow.js** for AI/ML models
 - **Redis** for caching and sessions
@@ -68,13 +67,20 @@ A comprehensive, India-focused SaaS solution designed to empower startups and MS
 - **JWT tokens** for API security
 - **Data encryption** at rest and in transit
 
+## 🔐 Authentication (No Firebase)
+
+- User authentication is handled using JWT (JSON Web Tokens).
+- User credentials are securely stored in MongoDB.
+- On login, the backend issues a JWT signed with your `JWT_SECRET`.
+- Protected API routes require the JWT in the `Authorization: Bearer <token>` header.
+- No Firebase or third-party auth is required.
+
 ## 📋 Installation
 
 ### Prerequisites
 - Node.js (v16 or higher)
 - MongoDB
 - Redis
-- Firebase project setup
 
 ### Backend Setup
 ```bash
@@ -117,11 +123,6 @@ MONGODB_URI=mongodb://localhost:27017/cybersecurity_ai
 JWT_SECRET=your_jwt_secret_here
 JWT_EXPIRE=24h
 
-# Firebase
-FIREBASE_PROJECT_ID=your_project_id
-FIREBASE_PRIVATE_KEY=your_private_key
-FIREBASE_CLIENT_EMAIL=your_client_email
-
 # Redis
 REDIS_URL=redis://localhost:6379
 
@@ -155,7 +156,6 @@ cybersecurity-ai-platform/
 ├── README.md
 ├── config/                   # Configuration files
 │   ├── database.js
-│   ├── firebase.js
 │   └── redis.js
 ├── models/                   # Database models
 │   ├── User.js

@@ -55,26 +55,6 @@ const handleJWTExpiredError = () => {
 };
 
 /**
- * Handle Firebase auth errors
- */
-const handleFirebaseError = (err) => {
-  const errorMessages = {
-    'auth/user-not-found': 'User not found',
-    'auth/wrong-password': 'Invalid credentials',
-    'auth/email-already-in-use': 'Email already registered',
-    'auth/weak-password': 'Password is too weak',
-    'auth/invalid-email': 'Invalid email address',
-    'auth/too-many-requests': 'Too many failed attempts. Please try again later',
-    'auth/user-disabled': 'Account has been disabled',
-    'auth/operation-not-allowed': 'Operation not allowed',
-    'auth/invalid-credential': 'Invalid credentials'
-  };
-
-  const message = errorMessages[err.code] || 'Authentication failed';
-  return new AppError(message, 401);
-};
-
-/**
  * Handle rate limiting errors
  */
 const handleRateLimitError = (err) => {
@@ -187,8 +167,6 @@ const errorHandler = (err, req, res, next) => {
     error = handleJWTError();
   } else if (err.name === 'TokenExpiredError') {
     error = handleJWTExpiredError();
-  } else if (err.code && err.code.startsWith('auth/')) {
-    error = handleFirebaseError(err);
   } else if (err.statusCode === 429) {
     error = handleRateLimitError(err);
   } else if (err.code && err.code.startsWith('LIMIT_')) {
