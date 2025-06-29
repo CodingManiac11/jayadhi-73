@@ -115,13 +115,15 @@ Create a `.env` file in the root directory:
 # Server Configuration
 PORT=5000
 NODE_ENV=development
+CLIENT_URL=http://localhost:3000
 
 # Database
-MONGODB_URI=mongodb://localhost:27017/cybersecurity_ai
-
+MONGODB_URI=mongodb+srv://adityautsav1901:ziYcGJFCpzmuQABT@cyber.kjw2phk.mongodb.net/
 # JWT
-JWT_SECRET=your_jwt_secret_here
+JWT_SECRET=fcf1671b3947b6d6dd55c1acf78671255b4e3e377493f11948117c32afedb134
 JWT_EXPIRE=24h
+
+
 
 # Redis
 REDIS_URL=redis://localhost:6379
@@ -129,22 +131,17 @@ REDIS_URL=redis://localhost:6379
 # Email (Nodemailer)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
-SMTP_PASS=your_app_password
+SMTP_USER=adityautsav123456@gmail.com
+SMTP_PASS=admin123
 
-# SMS (Twilio)
-TWILIO_ACCOUNT_SID=your_account_sid
-TWILIO_AUTH_TOKEN=your_auth_token
-TWILIO_PHONE_NUMBER=your_twilio_number
 
-# Payment (Stripe)
-STRIPE_SECRET_KEY=your_stripe_secret_key
-STRIPE_WEBHOOK_SECRET=your_webhook_secret
 
 # AI/ML Models
 AI_MODEL_PATH=./models/threat_detection_model
 ANOMALY_THRESHOLD=0.8
-```
+
+# Encryption
+ENCRYPTION_KEY=b19ac0c39fbe6871034738789023152b6aa58df09308a4f8b69aa56cdfa2cc62```
 
 ## 🏗️ Project Structure
 
@@ -263,18 +260,12 @@ docker-compose up -d
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-For support, email support@cybersecurity-ai.com or join our Slack channel.
+For support, email adityautsav1901@gmail.com
 
-## 🔒 Security
 
-If you discover any security-related issues, please email security@cybersecurity-ai.com instead of using the issue tracker.
 
----
 
-**Built with ❤️ for India's growing digital economy** 
