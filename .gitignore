@@ -1,0 +1,61 @@
+# Node.js
+node_modules/
+client/node_modules/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+ai_service/__pycache__/
+
+# Python virtual environments
+venv/
+ai_service/venv/
+ENV/
+
+# Environment variables
+.env
+.env.*
+ai_service/.env
+config/*.env
+
+# Model and data files
+ai_service/*.joblib
+*.joblib
+*.h5
+*.pkl
+*.csv
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/project files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build output
+client/dist/
+
+# Misc
+*.bak
+*.tmp
+
+# Ignore test and example threat files (if recreated)
+threat_examples.json
+threat_*.json
+
+# Ignore scripts output
+scripts/*.log
+
+# Git itself
+.git/ 
