@@ -1,0 +1,109 @@
+/Project-Sentinel-SME-Cyber-Initiative
+│
+├── README.md                
+│
+├── 01_Market_Research/
+│   ├── Industry_Data_Summary.md
+│   ├── Persona_-_Maria_the_Restaurateur.md
+│   ├── Customer_Journey_Map.md
+│   └── Competitive_Analysis.csv
+│
+├── 02_Product_Modules/
+│   └── Compliance_Tracker_Content.md
+│
+└── 03_Content_Creation/
+    ├── Marketing_-_Cyber_Insurance_Benefits.md
+    ├── Documentation_-_Onboarding_Guide.md
+    └── Documentation_-_Support_FAQ.md
+
+
+# User Persona: Maria, the Restaurateur
+
+**"I'm passionate about food, not firewalls. I need something that just works, so I can focus on my customers."**
+
+*   **Role:** Owner & Operator, "The Corner Cafe"
+*   **Company Size:** 15 employees
+*   **Age:** 42
+*   **Tech Comfort:** Low to Medium. Uses a Point-of-Sale system and social media, but is not a tech expert.
+
+### Goals
+*   Grow her business and open a second location.
+*   Keep her customer payment data and employee information safe.
+*   Spend more time on marketing and menu development, less on admin tasks.
+
+### Frustrations (Pain Points)
+*   Cybersecurity feels overwhelming and is full of technical jargon.
+*   Fears a data breach could ruin her cafe's reputation.
+*   Doesn't have a dedicated IT person or a big budget for security tools.
+*   Worries about new laws but doesn't have time to research them.
+# Customer Journey Map for Maria
+
+| Stage         | Maria's Actions                                   | Maria's Thoughts                                           | Pain Points                                      |
+|---------------|---------------------------------------------------|------------------------------------------------------------|--------------------------------------------------|
+| **Awareness**   | Hears about a data breach at another local shop.  | "Could that happen to me? What am I supposed to do?"        | Fear, uncertainty, doesn't know where to start.  |
+| **Consideration** | Googles "cybersecurity for small business."       | "All these options are so confusing. Which one is right?"  | Overwhelmed by jargon and complex pricing.       |
+| **Purchase**    | Finds our website. Tries to understand the plans. | "Okay, this one seems simpler. Is it really affordable?"   | Lack of clear, upfront pricing is a major turn-off.|
+| **Onboarding**  | Signs up and logs in for the first time.          | "Now what? How do I get this set up correctly?"            | Confusing first-time user experience.            |
+| **Service/Use** | Needs to check her compliance status.             | "Where do I find the report? What does this score mean?"   | Hard to find answers; no easy access to support. |
+
+Competitor,Pricing Model,Price Range,Key Features,Notes
+CyberSafe Inc.,Per Employee/Per Month,"$10/employee/month",Endpoint security;Phishing training,"Good for tech-savvy teams, but complex for beginners."
+SecureSmallBiz,Tiered (Basic/Pro),"$500/year (Basic)",Firewall;Data backup;Basic compliance,"Website is outdated; pricing is not transparent."
+InsureMeDigital,Flat Annual Fee,"Contact for Quote",Mainly focused on insurance policy;Security tools are an add-on,"Strong on insurance, weak on preventative tech."
+
+# Draft Content: Compliance Tracker Modules
+
+### Module 1: CERT-In Incident Reporting
+
+*   **The Rule:** The CERT-In guidelines state that specific types of cyber incidents must be reported to the government within 6 hours of being noticed.
+*   **Why it Matters:** Reporting on time is a legal requirement. Failure to do so can result in significant fines and legal action. It also helps the government track threats and protect other businesses.
+*   **Your Action:** If you experience an incident (like ransomware or a data leak), you must use the official CERT-In portal to submit a report. Our tool can help you identify if an event is reportable.
+
+### Module 2: The IT Act, 2000 (Section 43A)
+
+*   **The Rule:** If your business possesses or handles any sensitive personal data, you must implement and maintain reasonable security practices to protect it.
+*   **Why it Matters:** This rule makes you responsible for protecting your customers' data. If you are negligent and a breach occurs, you are liable to pay damages to the people affected.
+*   **Your Action:** Our platform helps you implement "reasonable security" by scanning for vulnerabilities, providing employee training, and ensuring data is backed up.
+
+# Marketing Copy: Don't Let One Click Bankrupt Your Business
+
+### You're an expert in your business. We're experts in protecting it.
+
+Cyber attacks aren't just a "big company" problem anymore. A single ransomware attack or data breach can cost a small business everything. Cyber insurance is your financial safety net.
+
+**What Cyber Insurance Does For You (The Benefits):**
+
+*   **Peace of Mind:** Stop worrying about the "what ifs." Focus on your customers, knowing you're protected from the financial fallout of an attack.
+*   **Covers the Real Costs:** It's not just about stolen money. Our insurance helps pay for:
+    *   **Legal Fees & Fines:** To handle lawsuits and regulatory penalties.
+    *   **Customer Notification:** The cost of informing your customers their data was compromised.
+    *   **Business Recovery:** The costs to get your systems back up and running.
+*   **Access to Experts:** When an incident happens, you're not alone. You get immediate access to a team of legal, PR, and technical experts to guide you through the crisis.
+# User Onboarding: Getting Started Guide
+
+### Welcome to Project Sentinel! Let's get you protected in 3 simple steps.
+
+**Step 1: Connect Your Domain (2 minutes)**
+*   Enter your company's website address (`yourcompany.com`).
+*   We will run an initial, non-intrusive scan to find any public vulnerabilities.
+
+**Step 2: Set Up Your First User Scan (5 minutes)**
+*   This helps check for weak passwords and missing security updates on your primary computer.
+*   Click "Run First Scan" and follow the on-screen instructions.
+
+**Step 3: Review Your Security Score**
+*   Once the scans are complete, you'll see your initial Security Score on your dashboard.
+*   Don't worry if it's not perfect! We'll guide you through the next steps to improve it.
+
+# Support & FAQ
+
+### **Q: What does my "Security Score" mean?**
+**A:** Your Security Score is a simple rating from 0-100 that shows how well-protected your business is. We calculate it based on your technical scans, employee training progress, and compliance status. The higher, the better!
+
+### **Q: I received a phishing email. What should I do?**
+**A:** Do not click any links or download any attachments. Use our "Report Phishing" button in your email client to automatically forward the suspicious email to our security team for analysis.
+
+### **Q: How do I reset my password?**
+**A:** You can reset your password by clicking the "Forgot Password?" link on the login page.
+
+
