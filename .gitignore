@@ -24,6 +24,7 @@ ENV/
 .env.*
 ai_service/.env
 config/*.env
+client/*.env
 
 # Model and data files
 ai_service/*.joblib

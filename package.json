@@ -43,6 +43,7 @@
     "natural": "^6.8.0",
     "node-cron": "^3.0.2",
     "nodemailer": "^6.9.4",
+    "razorpay": "^2.9.6",
     "redis": "^4.6.8",
     "socket.io": "^4.7.2",
     "stripe": "^13.5.0",
