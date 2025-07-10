@@ -1,6 +1,7 @@
-const path = require('path');
+// Minimal threat detection service placeholder
 
-const modelPath = path.join(__dirname, '..', process.env.AI_MODEL_PATH);
-
-
-const model = fs.readFileSync(modelPath);
+module.exports = {
+  startMonitoring: () => {
+    console.log('Threat detection monitoring started (placeholder)');
+  }
+}; 
