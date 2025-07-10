@@ -8,53 +8,130 @@ import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, IconButto
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { LogOut } from "lucide-react";
+import { initiatePayment } from './utils/razorpay.js';
 
-const Dashboard = () => (
-  <Box sx={{ p: 4 }}>
-    <Typography variant="h3" gutterBottom>Cybersecurity AI Platform</Typography>
-    <Typography variant="h6" color="text.secondary" gutterBottom>
-      Empowering Indian Startups & MSMEs with AI-driven Cybersecurity, Compliance, and Insurance Readiness
-    </Typography>
-    <Grid container spacing={3} sx={{ mt: 2 }}>
-      <Grid item xs={12} md={6}>
-        <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="h5">AI Threat Detection</Typography>
-          <Typography variant="body1" color="text.secondary">
-            Real-time monitoring and alerts for cyber threats using advanced AI algorithms.
-          </Typography>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/threats">View Threats</Button>
-        </Paper>
+
+const Dashboard = () => {
+  const handlePremiumPurchase = async () => {
+    try {
+      const token = localStorage.getItem('token'); // get JWT
+
+      // Step 1: Create Razorpay Order
+      const { data } = await axios.post(
+        'http://localhost:5000/api/payment/create-order',
+        { amount: 500 },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Step 2: Initiate Razorpay Payment
+      const razorpayResponse: any = await initiatePayment({ order: data.order, token });
+
+      // Step 3: Verify Payment on Server
+      const verifyRes = await axios.post(
+        'http://localhost:5000/api/payment/verify-payment',
+        {
+          razorpay_order_id: razorpayResponse.razorpay_order_id,
+          razorpay_payment_id: razorpayResponse.razorpay_payment_id,
+          razorpay_signature: razorpayResponse.razorpay_signature,
+          amount: 500,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (verifyRes.data.success) {
+        alert('✅ Payment successful! Premium activated.');
+      }
+    } catch (err) {
+      console.error('❌ Payment Error:', err);
+      alert('Payment failed or canceled. Please try again.');
+    }
+  };
+
+  return (
+    <Box sx={{ p: 4 }}>
+      <Typography variant="h3" gutterBottom>Cybersecurity AI Platform</Typography>
+      <Typography variant="h6" color="text.secondary" gutterBottom>
+        Empowering Indian Startups & MSMEs with AI-driven Cybersecurity, Compliance, and Insurance Readiness
+      </Typography>
+
+      <Grid container spacing={3} sx={{ mt: 2 }}>
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h5">AI Threat Detection</Typography>
+            <Typography variant="body1" color="text.secondary">
+              Real-time monitoring and alerts for cyber threats using advanced AI algorithms.
+            </Typography>
+            <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/threats">
+              View Threats
+            </Button>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h5">Asset Management</Typography>
+            <Typography variant="body1" color="text.secondary">
+              Track and manage your digital assets securely and efficiently.
+            </Typography>
+            <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/assets">
+              Manage Assets
+            </Button>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h5">Compliance Tracker</Typography>
+            <Typography variant="body1" color="text.secondary">
+              Stay on top of regulatory requirements and compliance tasks.
+            </Typography>
+            <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/compliance">
+              Compliance
+            </Button>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h5">Insurance Readiness</Typography>
+            <Typography variant="body1" color="text.secondary">
+              Assess and improve your cyber insurance eligibility and readiness.
+            </Typography>
+            <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/insurance">
+              Insurance
+            </Button>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h5">Upgrade to Premium</Typography>
+            <Typography variant="body1" color="text.secondary">
+              Unlock AI Threat Insights and advanced features with a premium plan.
+            </Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              sx={{ mt: 2 }}
+              onClick={handlePremiumPurchase}
+            >
+              Buy Premium @ ₹500
+            </Button>
+          </Paper>
+        </Grid>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="h5">Asset Management</Typography>
-          <Typography variant="body1" color="text.secondary">
-            Track and manage your digital assets securely and efficiently.
-          </Typography>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/assets">Manage Assets</Button>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="h5">Compliance Tracker</Typography>
-          <Typography variant="body1" color="text.secondary">
-            Stay on top of regulatory requirements and compliance tasks.
-          </Typography>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/compliance">Compliance</Button>
-        </Paper>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="h5">Insurance Readiness</Typography>
-          <Typography variant="body1" color="text.secondary">
-            Assess and improve your cyber insurance eligibility and readiness.
-          </Typography>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }} component={Link} to="/insurance">Insurance</Button>
-        </Paper>
-      </Grid>
-    </Grid>
-  </Box>
-);
+    </Box>
+  );
+};
 
 const Assets: React.FC = () => {
   const [assets, setAssets] = useState([]);
@@ -1387,7 +1464,7 @@ const UserProfile: React.FC = () => {
               fullWidth
               onClick={handleLogout}
             >
-              Logout
+              <LogOut />
             </Button>
           </Paper>
 
@@ -1474,7 +1551,7 @@ const App: React.FC = () => {
             <Button color="inherit" onClick={() => {
               localStorage.removeItem('token');
               window.location.href = '/signin';
-            }}>Logout</Button>
+            }}><LogOut /></Button>
           </Toolbar>
         </AppBar>
       )}

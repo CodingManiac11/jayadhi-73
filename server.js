@@ -22,6 +22,7 @@ const complianceRoutes = require('./routes/compliance');
 const insuranceRoutes = require('./routes/insurance');
 const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/users');
+const paymentRoutes = require('./routes/payment');
 
 // Import services
 const notificationService = require('./services/notificationService');
@@ -89,6 +90,8 @@ app.use('/api/compliance', typeof auth.authenticateToken === 'function' ? auth.a
 app.use('/api/insurance', insuranceRoutes);
 app.use('/api/admin', typeof auth.authenticateToken === 'function' ? auth.authenticateToken : noop, adminRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/payment', paymentRoutes);
+
 
 // Socket.io connection handling
 io.on('connection', (socket) => {
