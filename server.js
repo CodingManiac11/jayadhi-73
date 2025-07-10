@@ -37,6 +37,8 @@ const io = socketIo(server, {
   }
 });
 
+
+
 // Connect to databases
 connectDB();
 
@@ -67,7 +69,12 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // CORS configuration
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL || "http://localhost:3000",
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
+
 
 // Health check endpoint
 app.get('/health', (req, res) => {
