@@ -106,4 +106,38 @@ Cyber attacks aren't just a "big company" problem anymore. A single ransomware a
 ### **Q: How do I reset my password?**
 **A:** You can reset your password by clicking the "Forgot Password?" link on the login page.
 
+This commit introduces the finalized V1 pricing structure for the Sentinel platform, establishing three distinct tiers: Freemium, Essential, and Growth.
+
+The model is based on competitive analysis and a user-maturity framework, designed to align value with customer growth stages rather than just feature-gating.
+
+- **Freemium:** A permanent free tier to act as a lead-generation engine and build user trust. Limited to 1 user and basic alerts.
+- **Essential:** The core offering for typical SMEs (2-20 employees), providing all necessary security and reporting features.
+- **Growth:** A premium tier for scaling businesses and "Accidental IT Managers" who require unlimited users and priority support.
+
+This structure serves as the foundation for the Go-To-Market strategy and all sales collateral.
+
+Adds the initial Go-To-Market (GTM) strategy document. This document outlines the comprehensive plan for launching the product, acquiring initial users, and establishing market presence.
+
+Key sections include:
+- Target Audience Definition (including primary and secondary personas)
+- Core Marketing & Messaging Pillars
+- Channel Strategy (Digital, Partnerships, Content)
+- Pilot Program Objectives & KPIs
+
+This document will serve as the strategic guide for all launch-related activities and will be updated as we gather feedback from the pilot program.
+
+Creates the first drafts of essential sales collateral required for the pilot program outreach and initial sales conversations.
+
+- **One-Pager:** A concise, single-page PDF summarizing the product's value proposition, key features, and target audience. Designed for quick sharing.
+- **Pitch Deck:** A 10-slide presentation (PowerPoint/Google Slides) that provides a more detailed narrative for sales calls. It covers the problem, solution, product demo, pricing, and call-to-action.
+
+These assets are based on the finalized GTM strategy and pricing model and will be iterated upon based on feedback from pilot users.
+
+Adds operational files to support the pilot user acquisition campaign.
+
+- **Outreach Templates:** Includes standardized email and LinkedIn message templates for contacting potential pilot users. The messaging focuses on a collaborative "founding member" approach.
+- **Tracking Spreadsheet:** A CSV template for tracking outreach status (Contacted, Replied, Onboarded) to ensure a systematic and organized campaign.
+
+This provides the necessary tooling to execute the outreach portion of the GTM strategy effectively.
+
 
