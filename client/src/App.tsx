@@ -65,7 +65,7 @@ import {
 } from "@mui/icons-material"
 
 // Configure axios base URL
-axios.defaults.baseURL = "http://localhost:5000/api"
+axios.defaults.baseURL = `${import.meta.env.VITE_API_BASE_URL}/api`;
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem("token")
   if (token) {
