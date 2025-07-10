@@ -1,0 +1,8 @@
+Incident Report – {org}
+Date: {date}
+
+Summary:
+{summary}
+
+Impact Assessment:
+{impact}
